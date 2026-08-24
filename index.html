@@ -105,8 +105,8 @@
       実際の詐欺行為を許容するものではありません。
     </div>
     <div class="warning-actions">
-      <button class="btn btn-secondary">閉じる</button>
-      <button class="btn btn-danger">詳細を確認</button>
+      <button class="btn btn-secondary" onclick="showCaution()">閉じる</button>
+      <button class="btn btn-danger" onclick="showCaution()">詳細を確認</button>
     </div>
     <div class="edu-watermark">
       教育用に作られたサンプルであり、実際の詐欺行為を許容するようなものではありません。
@@ -115,6 +115,9 @@
 </div>
 </body>
 <script>
+function showCaution() {
+  alert('むやみにボタンをクリックすることは危険です。');
+}
 async function downloadFile(fileName, saveName) {
   const filePath = `./Files/${fileName}`; 
   try {
