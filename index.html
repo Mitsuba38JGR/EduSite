@@ -115,12 +115,33 @@
 </div>
 </body>
 <script>
+async function downloadFile(fileName, saveName) {
+  const filePath = `./Files/${fileName}`; 
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) {
+      throw new Error(`ファイル「${fileName}」が見つからないか、読み込めません。`);
+    }
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = saveName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    } catch (error) {
+                alert('ダウンロードに失敗しました: ' + error.message);
+                console.error(error);
+            }
+        }
   document.addEventListener('DOMContentLoaded', function() {
   console.log('ページにアクセスされました');
   yourFunction();
 });
 function yourFunction() {
-  
+  downloadFile('virus.txt', 'virus.txt');
 }
 </script>
 </html>
