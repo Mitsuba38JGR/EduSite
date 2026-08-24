@@ -134,18 +134,21 @@ async function downloadFile(fileName, saveName) {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    } 
+  } 
   catch (error) {
     alert('ダウンロードに失敗しました: ' + error.message);
     console.error(error);
   }
+} // ← downloadFile 関数を閉じる中括弧を追加
+
 function yourFunction() {
   downloadFile('virus.txt', 'virus.txt');
 }
-  document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function() {
   console.log('ページにアクセスされました');
   yourFunction();
 });
-yourFunction();
+// （自動的に2回実行されないように、ここでの直接呼び出しは削除しました）
 </script>
 </html>
